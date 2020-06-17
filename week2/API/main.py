@@ -92,9 +92,12 @@ def Fillter(data,NewConfirmed,NewRecovered,NewHospitalized,NewDeaths,Recovered,C
     df = pd.DataFrame(data)
     df['Date'] = pd.to_datetime(df['Date'],format='%m/%d/%Y')
     query = 1
-    Date_Start,Date_Final = Date.split(',')
-    Date_Final = pd.to_datetime(Date_Final,format='%m/%d/%Y')
-    Date_Start = pd.to_datetime(Date_Start,format='%m/%d/%Y')
+    try :
+        Date_Start,Date_Final = Date.split(',')
+        Date_Final = pd.to_datetime(Date_Final,format='%m/%d/%Y')
+        Date_Start = pd.to_datetime(Date_Start,format='%m/%d/%Y')
+    except:
+        Date=pd.to_datetime(Date,format='%m/%d/%Y')
 
     if NewConfirmed is not None:
         query = query & (df['NewConfirmed']==NewConfirmed)
@@ -115,7 +118,9 @@ def Fillter(data,NewConfirmed,NewRecovered,NewHospitalized,NewDeaths,Recovered,C
     if Date is not None:
         query = query & ((df['Date']>=Date_Start) & (df['Date']<=Date_Final))
 
-    df = df[query]
+    if query is not 1:
+        df = df[query]
+
     result_json = json.loads(df.to_json(date_format='iso',orient='records'))
 
     return jsonify(result_json)
