@@ -1,10 +1,11 @@
 from flask import Flask, jsonify
 import pymongo
+import os
 
 app = Flask(__name__)
 
 def connect_to_database():
-    MONGODB_URI = 'mongodb://heroku_672rlh8s:s18fo4q6ejpm67lmodcn4hqjil@ds161551.mlab.com:61551/heroku_672rlh8s'
+    MONGODB_URI = os.environ['MONGODB_URI']
     client = pymongo.MongoClient(MONGODB_URI,retryWrites = False)
     db = client['heroku_672rlh8s']
     collection_name = 'covid_stats'
