@@ -5,6 +5,8 @@
 :pushpin: **Week 2 : API** 
 - :link: Link : [Flask](https://flask.palletsprojects.com) , [Streamlit](https://www.streamlit.io)
 
-:pushpin: **Week 2 : MongoDB** 
+:pushpin: **Week 3 : MongoDB** 
+- :link: Link : [Doc](https://docs.mongodb.com)
 
-:pushpin: **Week 2 : Heroku** 
+:pushpin: **Week 4 : Heroku** 
+- :link: Link : [Heroku](http://Heroku.com/)
