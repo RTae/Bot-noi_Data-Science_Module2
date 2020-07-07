@@ -10,3 +10,6 @@
 
 :pushpin: **Week 4 : Heroku** 
 - :link: Link : [Heroku](http://Heroku.com/)
+
+:pushpin: **Mini Project** 
+- :link: Link : [Mini Project](https://thairath-api.herokuapp.com)
